@@ -5,14 +5,16 @@
 class Game : std::enable_shared_from_this<Game>
 {
 public:
-	Game(HWND hWnd);
+	Game(HWND hWnd, HINSTANCE hInst);
 	~Game();
 
 	int Run();
 
+	void PreInitialize();
 	void PreUpdate();
 	void PreDraw();
 
+	void Initialize();
 	void Update();
 	void Draw();
 
@@ -23,8 +25,8 @@ private:
 	std::shared_ptr<GameTime> gameTime;
 
 	HWND hWnd;
-	ULONG_PTR gpToken;
+	HINSTANCE hInst;
 
-	std::shared_ptr<Gdiplus::Graphics> graphics;
+	HDC hdc;
 };
 

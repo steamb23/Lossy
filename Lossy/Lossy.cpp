@@ -106,7 +106,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
 	try
 	{
-		game = std::make_shared<Game>(hWnd);
+		game = std::make_shared<Game>(hWnd,hInst);
 	}
 	catch (GdiplusException& ex)
 	{
@@ -139,6 +139,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	switch (message)
 	{
+	case WM_CREATE:
+		game->PreInitialize();
 	case WM_COMMAND:
 	{
 		int wmId = LOWORD(wParam);
