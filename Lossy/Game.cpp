@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Game.h"
+#include "HDCManager.h"
 
 using namespace Gdiplus;
 
@@ -122,6 +123,7 @@ void Game::Update()
 float a = 0;
 void Game::Draw()
 {
+	HDCManager::Inst()->ScreenClear(hdc);
 	DrawFPS();
 	//ScreenClear();
 	//DrawFPS();
