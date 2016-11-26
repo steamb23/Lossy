@@ -85,6 +85,11 @@ double SteamB23::Stopwatch::GetElapsedTotalSeconds()
 	return GetElapsedDataTimeTicks() / (double)TicksPerSecond;
 }
 
+double SteamB23::Stopwatch::GetElapsedTotalMiliseconds()
+{
+	return GetElapsedDataTimeTicks() / (double)TicksPerMillisecond;
+}
+
 LONGLONG SteamB23::Stopwatch::GetElapsedMiliseconds()
 {
 	return GetElapsedDataTimeTicks() / TicksPerMillisecond;

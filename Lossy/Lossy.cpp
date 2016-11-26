@@ -104,16 +104,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 	HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_CAPTION | WS_SYSMENU | WS_BORDER | WS_MINIMIZEBOX,
 		CW_USEDEFAULT, 0, 816, 639, nullptr, nullptr, hInstance, nullptr);
 
-	try
-	{
-		game = std::make_shared<Game>(hWnd,hInst);
-	}
-	catch (GdiplusException& ex)
-	{
-		MessageBox(hWnd, TEXT("GDI+ 라이브러리를 초기화할 수 없습니다."), TEXT("오류"), MB_OK);
-		return FALSE;
-	}
-
+	game = std::make_shared<Game>(hWnd, hInst);
+	game->PreInitialize();
 	if (!hWnd)
 	{
 		return FALSE;
@@ -139,8 +131,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	switch (message)
 	{
-	case WM_CREATE:
-		game->PreInitialize();
 	case WM_COMMAND:
 	{
 		int wmId = LOWORD(wParam);

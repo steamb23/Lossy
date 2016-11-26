@@ -1,6 +1,5 @@
 #pragma once
 #include <memory>
-#include "GdiplusException.h"
 #include "GameTime.h"
 class Game : std::enable_shared_from_this<Game>
 {
@@ -28,5 +27,9 @@ private:
 	HINSTANCE hInst;
 
 	HDC hdc;
+	HDC memDC;
+
+
+	HBITMAP testBitmap;
 };
 

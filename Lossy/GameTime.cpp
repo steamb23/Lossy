@@ -3,9 +3,9 @@
 
 
 GameTime::GameTime()
-	: frameRateTimer(), totalTimer(),deltaTime(0),totalTime(0),totalFrameCount(0),deltaRatio(0)
+	: frameRateTimer(), totalTimer(), deltaTime(0), totalTime(0), totalFrameCount(0), deltaRatio(0)
 {
-	
+
 }
 
 void GameTime::Start()

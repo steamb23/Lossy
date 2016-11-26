@@ -23,7 +23,7 @@
 #include <stdexcept>
 #include <memory>
 
+#include "GameMath.h"
 #include <ole2.h>
-#include <gdiplus.h>
 
 #define EndLine TEXT("\r\n")

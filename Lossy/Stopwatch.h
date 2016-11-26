@@ -55,6 +55,7 @@ namespace SteamB23
 			return isRunning;
 		}
 		double GetElapsedTotalSeconds();
+		double GetElapsedTotalMiliseconds();
 		LONGLONG GetElapsedMiliseconds();
 		LONGLONG GetElapsedTicks();
 

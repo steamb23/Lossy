@@ -1,9 +1,9 @@
 #include "stdafx.h"
 #include "Game.h"
 #include "HDCManager.h"
+#include "Resource.h"
 
-using namespace Gdiplus;
-
+#include <string>
 
 Game::Game(HWND hWnd, HINSTANCE hInst)
 {
@@ -44,7 +44,7 @@ int Game::Run()
 				DispatchMessage(&msg);
 			}
 		}
-		if (timer.GetElapsedTotalSeconds() > 1 / (float)30)
+		if (timer.GetElapsedTotalSeconds() > 1 / (double)30)
 		{
 			PreUpdate();
 			InvalidateRect(hWnd, nullptr, false);
@@ -58,6 +58,7 @@ int Game::Run()
 
 void Game::PreInitialize()
 {
+	testBitmap = HDCManager::Inst()->LoadBitmapFromResource(hInst, IDB_BITMAPTEST);
 	Initialize();
 }
 
@@ -77,10 +78,10 @@ void Game::PreDraw()
 	// hdc is Background DC.
 	hdc = CreateCompatibleDC(screenDC);
 	HBITMAP PreviousBitmap = (HBITMAP)SelectObject(hdc, backBitmap);
-	HDC memDC = CreateCompatibleDC(screenDC);
+	memDC = CreateCompatibleDC(hdc);
 
 	//this->graphics = std::make_shared<Gdiplus::Graphics>(hdc);
-
+	HDCManager::Inst()->SetDC(hdc, memDC);
 	Draw();
 	//graphics.reset();
 
@@ -90,7 +91,6 @@ void Game::PreDraw()
 	BitBlt(screenDC, 0, 0, 800, 600, hdc, 0, 0, SRCCOPY);
 	SelectObject(hdc, PreviousBitmap);
 	DeleteObject(backBitmap);
-	DeleteDC(memDC);
 	DeleteDC(hdc);
 
 	EndPaint(hWnd, &ps);
@@ -109,7 +109,7 @@ void Game::PreDraw()
 	//	graphics.reset();
 	//}
 	//EndPaint(hWnd, &ps);
-	
+
 }
 
 void Game::Initialize()
@@ -123,7 +123,11 @@ void Game::Update()
 float a = 0;
 void Game::Draw()
 {
-	HDCManager::Inst()->ScreenClear(hdc);
+	ScreenClear();
+
+	for (int i = 0; i < 1; i++)
+		HDCManager::Inst()->DrawBitmap(testBitmap, i, i, 128, 128, 0, 0, 128, 128);
+
 	DrawFPS();
 	//ScreenClear();
 	//DrawFPS();
@@ -132,31 +136,47 @@ void Game::Draw()
 	//graphics->DrawEllipse(&p, 100, 100, 400, 400);
 	//graphics->DrawLine(&p, 300, 300, (int)(300 + cos(a) * 200), (int)(300+sin(a)*200));
 	//a += 0.05f * gameTime->DeltaRatioD();
+
 }
 
 void Game::ScreenClear()
 {
-	//SolidBrush bgBrush(Gdiplus::Color::Black);
-	//graphics->FillRectangle(&bgBrush, 0, 0, 800, 600);
+	HDCManager::Inst()->ScreenClear();
 }
 
 void Game::DrawFPS()
 {
 	WCHAR frame[512];
-	double fps = 0;
-	fps = gameTime->FPS();
-	if (fps != INFINITY)
-		wsprintfW(frame, L"fps : %d", (int)(fps + 0.5));
-	else
-	{
-		wsprintfW(frame, L"fps : 0");
-	}
 
 	SetBkMode(hdc, TRANSPARENT);
-	SetTextColor(hdc, RGB(255, 0, 0));
+	SetTextColor(hdc, RGB(0, 255, 255));
+
+	double fps = 0;
+	// fps
+	fps = gameTime->FPS();
+	if (fps != INFINITY)
+		wsprintfW(frame, L"fps : %sfps", std::to_wstring(fps).c_str());
+	else
+		wsprintfW(frame, L"fps : null");
 	TextOut(hdc, 0, 0, frame, lstrlenW(frame));
-/*
-	Font font(L"Arial", 20, FontStyleRegular, UnitPixel);
-	SolidBrush fontBrush(Color::White);
-	graphics->DrawString(frame, lstrlenW(frame), &font, PointF(0, 0), &fontBrush);*/
+
+	// deltaTime
+	fps = gameTime->DeltaTimeD();
+	if (fps != INFINITY)
+		wsprintfW(frame, L"deltaTime : %ss", std::to_wstring(fps).c_str());
+	else
+		wsprintfW(frame, L"deltaTime : null");
+	TextOut(hdc, 0, 20, frame, lstrlenW(frame));
+
+	// deltaRatio
+	fps = gameTime->DeltaRatioD();
+	if (fps != INFINITY)
+		wsprintfW(frame, L"deltaRatio : %s%%", std::to_wstring(fps * 100).c_str());
+	else
+		wsprintfW(frame, L"deltaRatio : null");
+	TextOut(hdc, 0, 40, frame, lstrlenW(frame));
+	/*
+		Font font(L"Arial", 20, FontStyleRegular, UnitPixel);
+		SolidBrush fontBrush(Color::White);
+		graphics->DrawString(frame, lstrlenW(frame), &font, PointF(0, 0), &fontBrush);*/
 }
