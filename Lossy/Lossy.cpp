@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "Lossy.h"
 #include "Game.h"
+#include "LossyGame.h"
 
 #define MAX_LOADSTRING 100
 
@@ -104,8 +105,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 	HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_CAPTION | WS_SYSMENU | WS_BORDER | WS_MINIMIZEBOX,
 		CW_USEDEFAULT, 0, 816, 639, nullptr, nullptr, hInstance, nullptr);
 
-	game = std::make_shared<Game>(hWnd, hInst);
-	game->PreInitialize();
+	game = std::make_shared<LossyGame>(hWnd, hInst);
 	if (!hWnd)
 	{
 		return FALSE;

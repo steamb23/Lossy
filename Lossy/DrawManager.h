@@ -1,17 +1,17 @@
 #pragma once
-class HDCManager
+class DrawManager
 {
-	HDCManager();
-	~HDCManager();
+	DrawManager();
+	~DrawManager();
 
-	static HDCManager* instance;
+	static DrawManager* instance;
 	COLORREF cornflowerBlue;
 	COLORREF magenta;
 	HBRUSH bgBrush;
 
 	HDC hdc, memDC;
 public:
-	static HDCManager* Inst();
+	static DrawManager* Inst();
 
 	HBITMAP LoadBitmapFromResource(HINSTANCE hInst, int i)
 	{
@@ -22,6 +22,15 @@ public:
 	{
 		this->hdc = hdc;
 		this->memDC = memDC;
+	}
+
+	HDC GetDC()
+	{
+		return this->hdc;
+	}
+	HDC GetMemDC()
+	{
+		return this->memDC;
 	}
 
 	void ScreenClear()

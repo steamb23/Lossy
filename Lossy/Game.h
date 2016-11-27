@@ -1,11 +1,13 @@
 #pragma once
 #include <memory>
 #include "GameTime.h"
-class Game : std::enable_shared_from_this<Game>
+#include "DrawManager.h"
+
+class Game : protected std::enable_shared_from_this<Game>
 {
 public:
 	Game(HWND hWnd, HINSTANCE hInst);
-	~Game();
+	virtual ~Game();
 
 	int Run();
 
@@ -13,23 +15,20 @@ public:
 	void PreUpdate();
 	void PreDraw();
 
-	void Initialize();
-	void Update();
-	void Draw();
+	virtual void Initialize();
+	virtual void Update();
+	virtual void Draw();
 
 	void ScreenClear();
 	void DrawFPS();
-private:
-	BOOL isRun;
-	std::shared_ptr<GameTime> gameTime;
 
+	BOOL IsFrameLimit() { return isFrameLimit; };
+	void IsFrameLimit(BOOL value) { this->isFrameLimit = value; };
+protected:
 	HWND hWnd;
 	HINSTANCE hInst;
-
-	HDC hdc;
-	HDC memDC;
-
-
-	HBITMAP testBitmap;
+	BOOL isFrameLimit;
+	std::shared_ptr<GameTime> gameTime;
+private:
+	BOOL isRun;
 };
-

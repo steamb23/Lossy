@@ -1,9 +1,9 @@
 #include "stdafx.h"
-#include "HDCManager.h"
+#include "DrawManager.h"
 
-HDCManager* HDCManager::instance;
+DrawManager* DrawManager::instance;
 
-HDCManager::HDCManager()
+DrawManager::DrawManager()
 {
 	cornflowerBlue = RGB(100, 149, 237);
 	magenta = RGB(255, 0, 255);
@@ -11,13 +11,13 @@ HDCManager::HDCManager()
 }
 
 
-HDCManager::~HDCManager()
+DrawManager::~DrawManager()
 {
 }
 
-HDCManager* HDCManager::Inst()
+DrawManager* DrawManager::Inst()
 {
 	if (instance == nullptr)
-		instance = new HDCManager();
+		instance = new DrawManager();
 	return instance;
 }

@@ -1,4 +1,5 @@
 #pragma once
+#include <memory>
 #include "Stopwatch.h"
 class GameTime
 {
@@ -42,4 +43,3 @@ public:
 
 	void Update();
 };
-

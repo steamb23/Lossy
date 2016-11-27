@@ -1,20 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="소스 파일">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="헤더 파일">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
     <Filter Include="리소스 파일">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="메인 파일">
       <UniqueIdentifier>{4408b5d5-7e0d-4544-a9ea-83fe32eef11b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="프레임워크 소스 파일">
+      <UniqueIdentifier>{5e600b18-bf8e-4b91-93ee-ab2607b75789}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="프레임워크 헤더 파일">
+      <UniqueIdentifier>{ed4b91f6-d8dc-422f-a510-b60386d5da32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="게임 소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="게임 헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -34,22 +40,37 @@
       <Filter>메인 파일</Filter>
     </ClInclude>
     <ClInclude Include="Game.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="GameTime.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Stopwatch.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="HDCManager.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>프레임워크 헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="GameMath.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>프레임워크 헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>프레임워크 헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="GameTime.h">
+      <Filter>프레임워크 헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Stopwatch.h">
+      <Filter>프레임워크 헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>게임 헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawManager.h">
+      <Filter>프레임워크 헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="LossyGame.h">
+      <Filter>게임 헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletManager.h">
+      <Filter>게임 헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>프레임워크 헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>프레임워크 헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -59,20 +80,35 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>메인 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>소스 파일</Filter>
+    <ClCompile Include="Stopwatch.cpp">
+      <Filter>프레임워크 소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="GameTime.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Stopwatch.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="HDCManager.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>프레임워크 소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>프레임워크 소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>프레임워크 소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>게임 소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawManager.cpp">
+      <Filter>프레임워크 소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="LossyGame.cpp">
+      <Filter>게임 소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletManager.cpp">
+      <Filter>게임 소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>프레임워크 소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>프레임워크 소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

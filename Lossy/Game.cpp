@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "Game.h"
-#include "HDCManager.h"
 #include "Resource.h"
 
 #include <string>
@@ -10,6 +9,7 @@ Game::Game(HWND hWnd, HINSTANCE hInst)
 	this->hWnd = hWnd;
 	this->hInst = hInst;
 	this->gameTime = std::make_shared<GameTime>();
+	this->isFrameLimit = true;
 }
 
 
@@ -19,14 +19,11 @@ Game::~Game()
 
 int Game::Run()
 {
-	TCHAR debug[10];
-
-	OutputDebugString(TEXT("게임 실행됨."));
-	OutputDebugString(EndLine);
 	isRun = true;
 
 	gameTime->Start();
 	SteamB23::Stopwatch timer;
+	PreInitialize();
 	timer.Start();
 
 	MSG msg;
@@ -44,7 +41,7 @@ int Game::Run()
 				DispatchMessage(&msg);
 			}
 		}
-		if (timer.GetElapsedTotalSeconds() > 1 / (double)30)
+		if (!isFrameLimit || timer.GetElapsedTotalSeconds() > 1 / (double)30)
 		{
 			PreUpdate();
 			InvalidateRect(hWnd, nullptr, false);
@@ -58,7 +55,6 @@ int Game::Run()
 
 void Game::PreInitialize()
 {
-	testBitmap = HDCManager::Inst()->LoadBitmapFromResource(hInst, IDB_BITMAPTEST);
 	Initialize();
 }
 
@@ -76,12 +72,12 @@ void Game::PreDraw()
 	// 더블 버퍼링 초기화.
 	HBITMAP backBitmap = CreateCompatibleBitmap(screenDC, 800, 600);
 	// hdc is Background DC.
-	hdc = CreateCompatibleDC(screenDC);
+	HDC hdc = CreateCompatibleDC(screenDC);
 	HBITMAP PreviousBitmap = (HBITMAP)SelectObject(hdc, backBitmap);
-	memDC = CreateCompatibleDC(hdc);
+	HDC memDC = CreateCompatibleDC(hdc);
 
 	//this->graphics = std::make_shared<Gdiplus::Graphics>(hdc);
-	HDCManager::Inst()->SetDC(hdc, memDC);
+	DrawManager::Inst()->SetDC(hdc, memDC);
 	Draw();
 	//graphics.reset();
 
@@ -119,34 +115,20 @@ void Game::Initialize()
 void Game::Update()
 {
 }
-#include <math.h>
-float a = 0;
+
 void Game::Draw()
 {
-	ScreenClear();
-
-	for (int i = 0; i < 1; i++)
-		HDCManager::Inst()->DrawBitmap(testBitmap, i, i, 128, 128, 0, 0, 128, 128);
-
-	DrawFPS();
-	//ScreenClear();
-	//DrawFPS();
-
-	//Pen p(Color(255,140,0), 5);
-	//graphics->DrawEllipse(&p, 100, 100, 400, 400);
-	//graphics->DrawLine(&p, 300, 300, (int)(300 + cos(a) * 200), (int)(300+sin(a)*200));
-	//a += 0.05f * gameTime->DeltaRatioD();
-
 }
 
 void Game::ScreenClear()
 {
-	HDCManager::Inst()->ScreenClear();
+	DrawManager::Inst()->ScreenClear();
 }
 
 void Game::DrawFPS()
 {
 	WCHAR frame[512];
+	HDC hdc = DrawManager::Inst()->GetDC();
 
 	SetBkMode(hdc, TRANSPARENT);
 	SetTextColor(hdc, RGB(0, 255, 255));

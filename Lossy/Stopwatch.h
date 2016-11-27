@@ -65,6 +65,4 @@ namespace SteamB23
 	private:
 		LONGLONG GetElapsedDataTimeTicks();
 	};
-
-
 }
