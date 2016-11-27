@@ -24,11 +24,11 @@ void Background::Update()
 {
     auto deltaRatio = game->GetGameTime()->DeltaRatio();
     x1 -= 4 * deltaRatio;
-    if (x1 < -800)
+    while (x1 < -800)
         x1 += 800;
 
     x2 -= 32 * deltaRatio;
-    if (x2 < -800)
+    while (x2 < -800)
         x2 += 800;
 }
 
