@@ -11,6 +11,7 @@ Game::Game(HWND hWnd, HINSTANCE hInst)
     this->gameTime = std::make_shared<GameTime>();
     this->isFrameLimit = true;
     this->isRun = false;
+    DrawManager::Inst()->SetHInst(hInst);
 }
 
 

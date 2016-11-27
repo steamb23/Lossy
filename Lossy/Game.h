@@ -28,6 +28,8 @@ public:
     BOOL IsFrameLimit() { return isFrameLimit; };
     void IsFrameLimit(BOOL value) { this->isFrameLimit = value; };
 
+    std::shared_ptr<GameTime> GetGameTime() { return gameTime; };
+
     std::shared_ptr<SceneManager> GetSceneManager() const { return sceneManager; };
 protected:
     HWND hWnd;

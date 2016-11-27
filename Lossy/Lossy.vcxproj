@@ -206,6 +206,7 @@
     <Image Include="..\background1.bmp" />
     <Image Include="..\background2.bmp" />
     <Image Include="..\Bullet.bmp" />
+    <Image Include="..\Player.bmp" />
     <Image Include="Lossy.ico" />
     <Image Include="small.ico" />
   </ItemGroup>

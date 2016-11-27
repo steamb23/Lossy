@@ -9,15 +9,20 @@ class DrawManager
     COLORREF magenta;
     HBRUSH bgBrush;
 
+    HINSTANCE hInst;
     HDC hdc, memDC;
 public:
     static DrawManager* Inst();
 
-    HBITMAP LoadBitmapFromResource(HINSTANCE hInst, int i)
+    HBITMAP LoadBitmapFromResource(int i)
     {
         return LoadBitmap(hInst, MAKEINTRESOURCE(i));
     }
 
+    void SetHInst(HINSTANCE hInst)
+    {
+        this->hInst = hInst;
+    }
     void SetDC(HDC hdc, HDC memDC)
     {
         this->hdc = hdc;
