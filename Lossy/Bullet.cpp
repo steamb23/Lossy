@@ -4,7 +4,8 @@
 #include "DrawManager.h"
 
 
-Bullet::Bullet(std::shared_ptr<SpriteAnimation> spriteAnimation)
+Bullet::Bullet(std::shared_ptr<Game> game, std::shared_ptr<SpriteAnimation> spriteAnimation)
+    : GameObject(game)
 {
     this->spriteAnimation = spriteAnimation;
 }
