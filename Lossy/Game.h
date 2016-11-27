@@ -2,6 +2,7 @@
 #include <memory>
 #include "GameTime.h"
 #include "DrawManager.h"
+#include "SceneManager.h"
 
 class Game : protected std::enable_shared_from_this<Game>
 {
@@ -10,6 +11,8 @@ public:
 	virtual ~Game();
 
 	int Run();
+
+	bool IsRun() { return isRun; };
 
 	void PreInitialize();
 	void PreUpdate();
@@ -29,6 +32,7 @@ protected:
 	HINSTANCE hInst;
 	BOOL isFrameLimit;
 	std::shared_ptr<GameTime> gameTime;
+	std::shared_ptr<SceneManager> sceneManager;
 private:
 	BOOL isRun;
 };

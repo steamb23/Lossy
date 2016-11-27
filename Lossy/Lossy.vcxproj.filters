@@ -72,6 +72,12 @@
     <ClInclude Include="SceneManager.h">
       <Filter>프레임워크 헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>게임 헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteAnimation.h">
+      <Filter>게임 헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Lossy.cpp">
@@ -110,6 +116,12 @@
     <ClCompile Include="SceneManager.cpp">
       <Filter>프레임워크 소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>게임 소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteAnimation.cpp">
+      <Filter>게임 소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Lossy.rc">
@@ -124,6 +136,18 @@
       <Filter>리소스 파일</Filter>
     </Image>
     <Image Include="..\..\..\..\..\Pictures\test.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\Bullet.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\Sprite-0002.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\background1.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\background2.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
   </ItemGroup>

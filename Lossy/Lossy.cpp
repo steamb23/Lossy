@@ -150,7 +150,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	break;
 	case WM_PAINT:
 	{
-		game->PreDraw();
+		if (game->IsRun())
+			game->PreDraw();
 	}
 	break;
 	case WM_DESTROY:

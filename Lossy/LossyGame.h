@@ -1,5 +1,7 @@
 #pragma once
 #include "Game.h"
+#include "SceneManager.h"
+
 class LossyGame :
 	public Game
 {

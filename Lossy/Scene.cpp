@@ -12,17 +12,6 @@ Scene::~Scene()
 {
 }
 
-void Scene::PreInitialize()
-{
-	if (!this->isInitialized)
-		Initialize();
-	this->isInitialized = true;
-}
-
-void Scene::Initialize()
-{
-}
-
 void Scene::Update()
 {
 }

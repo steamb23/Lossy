@@ -3,7 +3,6 @@
 #include "GameMath.h"
 class GameObject : protected std::enable_shared_from_this<GameObject>
 {
-	Vector2 position;
 	bool isInitialized;
 public:
 	GameObject();
@@ -14,4 +13,6 @@ public:
 
 	virtual void Update();
 	virtual void Draw();
+protected:
+	Vector2 position;
 };

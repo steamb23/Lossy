@@ -10,6 +10,7 @@ Game::Game(HWND hWnd, HINSTANCE hInst)
 	this->hInst = hInst;
 	this->gameTime = std::make_shared<GameTime>();
 	this->isFrameLimit = true;
+	this->isRun = false;
 }
 
 
