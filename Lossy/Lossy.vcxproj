@@ -163,6 +163,7 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameMath.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GameScene.h" />
     <ClInclude Include="GameTime.h" />
     <ClInclude Include="DrawManager.h" />
     <ClInclude Include="Lossy.h" />
@@ -182,6 +183,7 @@
     <ClCompile Include="BulletManager.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="GameTime.cpp" />
     <ClCompile Include="DrawManager.cpp" />
     <ClCompile Include="Lossy.cpp" />
@@ -206,6 +208,7 @@
     <Image Include="..\background1.bmp" />
     <Image Include="..\background2.bmp" />
     <Image Include="..\Bullet.bmp" />
+    <Image Include="..\PBullet.bmp" />
     <Image Include="..\Player.bmp" />
     <Image Include="Lossy.ico" />
     <Image Include="small.ico" />

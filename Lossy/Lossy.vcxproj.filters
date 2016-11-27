@@ -81,6 +81,9 @@
     <ClInclude Include="Background.h">
       <Filter>게임 헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="GameScene.h">
+      <Filter>게임 헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Lossy.cpp">
@@ -128,6 +131,9 @@
     <ClCompile Include="Background.cpp">
       <Filter>게임 소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="GameScene.cpp">
+      <Filter>게임 소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Lossy.rc">
@@ -154,6 +160,9 @@
       <Filter>리소스 파일</Filter>
     </Image>
     <Image Include="..\Player.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\PBullet.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
   </ItemGroup>

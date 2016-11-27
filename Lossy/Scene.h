@@ -12,4 +12,6 @@ public:
 
     virtual void Update();
     virtual void Draw();
+
+    std::shared_ptr<Game> GetGame() { return game.lock(); };
 };
