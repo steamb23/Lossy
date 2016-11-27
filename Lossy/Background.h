@@ -2,10 +2,10 @@
 #include <windows.h>
 class Background
 {
-	HBITMAP background1;
-	HBITMAP background2;
+    HBITMAP background1;
+    HBITMAP background2;
 public:
-	Background();
-	~Background();
+    Background();
+    ~Background();
 };
 

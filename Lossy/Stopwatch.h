@@ -15,54 +15,54 @@
 
 namespace SteamB23
 {
-	class Stopwatch
-	{
-	private:
-		static const LONGLONG TicksPerMillisecond = 10000;
-		static const LONGLONG TicksPerSecond = TicksPerMillisecond * 1000;
+    class Stopwatch
+    {
+    private:
+        static const LONGLONG TicksPerMillisecond = 10000;
+        static const LONGLONG TicksPerSecond = TicksPerMillisecond * 1000;
 
-		LONGLONG elapsed;
-		LONGLONG startTimeStamp;
-		BOOL isRunning;
+        LONGLONG elapsed;
+        LONGLONG startTimeStamp;
+        BOOL isRunning;
 
-		// performance-counter frequency, in counts per ticks.
-		// This can speed up conversion from high frequency performance-counter 
-		// to ticks. 
-		static DOUBLE tickFrequency;
+        // performance-counter frequency, in counts per ticks.
+        // This can speed up conversion from high frequency performance-counter 
+        // to ticks. 
+        static DOUBLE tickFrequency;
 
-		static LONGLONG frequency;
-		static BOOL isHighResolution;
+        static LONGLONG frequency;
+        static BOOL isHighResolution;
 
-		static BOOL isInitialized;
-	public:
-		// "Frequency" stores the frequency of the high-resolution performance counter, 
-		// if one exists. Otherwise it will store TicksPerSecond. 
-		// The frequency cannot change while the system is running,
-		// so we only need to initialize it once. 
-		static LONGLONG Frequency();
-		static BOOL IsHighResolution();
-		static void Initialize();
+        static BOOL isInitialized;
+    public:
+        // "Frequency" stores the frequency of the high-resolution performance counter, 
+        // if one exists. Otherwise it will store TicksPerSecond. 
+        // The frequency cannot change while the system is running,
+        // so we only need to initialize it once. 
+        static LONGLONG Frequency();
+        static BOOL IsHighResolution();
+        static void Initialize();
 
-		Stopwatch();
-		
-		void Start();
-		void Stop();
-		void Reset();
-		void Restart();
+        Stopwatch();
+        
+        void Start();
+        void Stop();
+        void Reset();
+        void Restart();
 
-		bool IsRunning()
-		{
-			return isRunning;
-		}
-		double GetElapsedTotalSeconds();
-		double GetElapsedTotalMiliseconds();
-		LONGLONG GetElapsedMiliseconds();
-		LONGLONG GetElapsedTicks();
+        bool IsRunning()
+        {
+            return isRunning;
+        }
+        double GetElapsedTotalSeconds();
+        double GetElapsedTotalMiliseconds();
+        LONGLONG GetElapsedMiliseconds();
+        LONGLONG GetElapsedTicks();
 
-		
+        
 
-		static LONGLONG GetTimeStamp();
-	private:
-		LONGLONG GetElapsedDataTimeTicks();
-	};
+        static LONGLONG GetTimeStamp();
+    private:
+        LONGLONG GetElapsedDataTimeTicks();
+    };
 }

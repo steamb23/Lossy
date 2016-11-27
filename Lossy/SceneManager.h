@@ -3,14 +3,14 @@
 #include "Scene.h"
 class SceneManager
 {
-	std::shared_ptr<Scene> currentScene;
+    std::shared_ptr<Scene> currentScene;
 public:
-	SceneManager();
-	~SceneManager();
+    SceneManager();
+    ~SceneManager();
 
-	void ChangeScene(std::shared_ptr<Scene> scene);
+    void ChangeScene(std::shared_ptr<Scene> scene);
 
-	void Update();
-	void Draw();
+    void Update();
+    void Draw();
 };
 

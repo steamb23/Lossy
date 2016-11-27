@@ -4,10 +4,10 @@
 
 SpriteAnimation::SpriteAnimation(std::shared_ptr<Sprite> sprite, int interval)
 {
-	this->sprite = sprite;
-	this->interval = interval;
-	currentInterval = 0;
-	currentFrame = 0;
+    this->sprite = sprite;
+    this->interval = interval;
+    currentInterval = 0;
+    currentFrame = 0;
 }
 
 SpriteAnimation::~SpriteAnimation()
@@ -16,22 +16,22 @@ SpriteAnimation::~SpriteAnimation()
 
 void SpriteAnimation::Update()
 {
-	if (++currentInterval >= interval)
-	{
-		currentInterval = 0;
-		if (++currentFrame >= sprite->GetCount())
-		{
-			currentFrame = 0;
-		}
-	}
+    if (++currentInterval >= interval)
+    {
+        currentInterval = 0;
+        if (++currentFrame >= sprite->GetCount())
+        {
+            currentFrame = 0;
+        }
+    }
 }
 
 void SpriteAnimation::Draw(int x, int y)
 {
-	sprite->Draw(x, y, currentFrame);
+    sprite->Draw(x, y, currentFrame);
 }
 
 void SpriteAnimation::Draw(int x, int y, int width, int height)
 {
-	sprite->Draw(x, y, width, height, currentFrame);
+    sprite->Draw(x, y, width, height, currentFrame);
 }

@@ -7,34 +7,34 @@
 class Game : protected std::enable_shared_from_this<Game>
 {
 public:
-	Game(HWND hWnd, HINSTANCE hInst);
-	virtual ~Game();
+    Game(HWND hWnd, HINSTANCE hInst);
+    virtual ~Game();
 
-	int Run();
+    int Run();
 
-	bool IsRun() { return isRun; };
+    bool IsRun() { return isRun; };
 
-	void PreInitialize();
-	void PreUpdate();
-	void PreDraw();
+    void PreInitialize();
+    void PreUpdate();
+    void PreDraw();
 
-	virtual void Initialize();
-	virtual void Update();
-	virtual void Draw();
+    virtual void Initialize();
+    virtual void Update();
+    virtual void Draw();
 
-	void ScreenClear();
-	void DrawFPS();
+    void ScreenClear();
+    void DrawFPS();
 
-	BOOL IsFrameLimit() { return isFrameLimit; };
-	void IsFrameLimit(BOOL value) { this->isFrameLimit = value; };
+    BOOL IsFrameLimit() { return isFrameLimit; };
+    void IsFrameLimit(BOOL value) { this->isFrameLimit = value; };
 
-	std::shared_ptr<SceneManager> GetSceneManager() const { return sceneManager; };
+    std::shared_ptr<SceneManager> GetSceneManager() const { return sceneManager; };
 protected:
-	HWND hWnd;
-	HINSTANCE hInst;
-	BOOL isFrameLimit;
-	std::shared_ptr<GameTime> gameTime;
-	std::shared_ptr<SceneManager> sceneManager;
+    HWND hWnd;
+    HINSTANCE hInst;
+    BOOL isFrameLimit;
+    std::shared_ptr<GameTime> gameTime;
+    std::shared_ptr<SceneManager> sceneManager;
 private:
-	BOOL isRun;
+    BOOL isRun;
 };

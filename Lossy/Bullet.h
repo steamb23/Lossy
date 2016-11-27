@@ -4,19 +4,19 @@
 #include "SpriteAnimation.h"
 
 class Bullet :
-	public GameObject
+    public GameObject
 {
-	bool isDestroyed;
-	std::shared_ptr<SpriteAnimation> spriteAnimation;
+    bool isDestroyed;
+    std::shared_ptr<SpriteAnimation> spriteAnimation;
 public:
-	Bullet(std::shared_ptr<SpriteAnimation> spriteAnimation);
-	virtual ~Bullet();
+    Bullet(std::shared_ptr<SpriteAnimation> spriteAnimation);
+    virtual ~Bullet();
 
-	virtual void Update();
-	virtual void Draw();
+    virtual void Update();
+    virtual void Draw();
 
-	virtual void Destroy();
+    virtual void Destroy();
 
-	bool IsDestroyed();
+    bool IsDestroyed();
 };
 

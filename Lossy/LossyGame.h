@@ -3,17 +3,17 @@
 #include "SceneManager.h"
 
 class LossyGame :
-	public Game
+    public Game
 {
-	HBITMAP testBitmap;
+    HBITMAP testBitmap;
 public:
-	LossyGame(HWND hWnd, HINSTANCE hInst);
-	virtual ~LossyGame();
+    LossyGame(HWND hWnd, HINSTANCE hInst);
+    virtual ~LossyGame();
 
-	bool isKey;
+    bool isKey;
 
-	virtual void Initialize();
-	virtual void Update();
-	virtual void Draw();
+    virtual void Initialize();
+    virtual void Update();
+    virtual void Draw();
 };
 

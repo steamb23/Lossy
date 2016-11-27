@@ -4,7 +4,7 @@
 
 Scene::Scene(std::shared_ptr<Game> game)
 {
-	this->game = game;
+    this->game = game;
 }
 
 

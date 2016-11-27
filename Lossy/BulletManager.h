@@ -3,12 +3,12 @@
 #include "Bullet.h"
 class BulletManager
 {
-	std::list<std::shared_ptr<Bullet>> bulletList;
+    std::list<std::shared_ptr<Bullet>> bulletList;
 public:
-	BulletManager();
-	~BulletManager();
+    BulletManager();
+    ~BulletManager();
 
-	virtual void Update();
-	virtual void Draw();
+    virtual void Update();
+    virtual void Draw();
 };
 
