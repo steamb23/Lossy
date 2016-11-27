@@ -18,10 +18,12 @@ void SceneManager::ChangeScene(std::shared_ptr<Scene> scene)
 
 void SceneManager::Update()
 {
-	currentScene->Update();
+	if (currentScene != null)
+		currentScene->Update();
 }
 
 void SceneManager::Draw()
 {
-	currentScene->Draw();
+	if (currentScene != null)
+		currentScene->Draw();
 }
