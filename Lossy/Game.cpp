@@ -12,6 +12,7 @@ Game::Game(HWND hWnd, HINSTANCE hInst)
     this->isFrameLimit = true;
     this->isRun = false;
     DrawManager::Inst()->SetHInst(hInst);
+    this->sceneManager = std::make_shared<SceneManager>();
 }
 
 
@@ -116,10 +117,12 @@ void Game::Initialize()
 
 void Game::Update()
 {
+    this->sceneManager->Update();
 }
 
 void Game::Draw()
 {
+    this->sceneManager->Draw();
 }
 
 void Game::ScreenClear()

@@ -20,6 +20,7 @@ std::shared_ptr<Background> back;
 
 void LossyGame::Initialize()
 {
+    Game::Initialize();
     isFrameLimit = false;
     testBitmap = DrawManager::Inst()->LoadBitmapFromResource(IDB_BITMAPTEST);
     back = std::make_shared<Background>(shared_from_this());
@@ -28,6 +29,7 @@ void LossyGame::Initialize()
 
 void LossyGame::Update()
 {
+    Game::Update();
     spa->Update();
     back->Update();
     this->isKey = GetAsyncKeyState(VK_UP);
@@ -36,6 +38,7 @@ void LossyGame::Update()
 void LossyGame::Draw()
 {
     ScreenClear();
+    Game::Draw();
     back->Draw();
     spa->Draw(100, 100);
     if (isKey)
