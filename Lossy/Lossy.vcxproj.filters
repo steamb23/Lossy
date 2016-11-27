@@ -84,6 +84,9 @@
     <ClInclude Include="GameScene.h">
       <Filter>게임 헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="PlayerObject.h">
+      <Filter>게임 헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Lossy.cpp">
@@ -132,6 +135,9 @@
       <Filter>게임 소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="GameScene.cpp">
+      <Filter>게임 소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerObject.cpp">
       <Filter>게임 소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

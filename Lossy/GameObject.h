@@ -1,11 +1,13 @@
 #pragma once
 #include <memory>
 #include "GameMath.h"
+class Game;
 class GameObject : protected std::enable_shared_from_this<GameObject>
 {
+    std::weak_ptr<Game> game;
     bool isInitialized;
 public:
-    GameObject();
+    GameObject(std::shared_ptr<Game> game);
     virtual ~GameObject();
 
     Vector2 GetPosition() const { return position; };
@@ -13,6 +15,8 @@ public:
 
     virtual void Update();
     virtual void Draw();
+
+    std::shared_ptr<Game> GetGame() { return game.lock(); };
 protected:
     Vector2 position;
 };

@@ -168,6 +168,7 @@
     <ClInclude Include="DrawManager.h" />
     <ClInclude Include="Lossy.h" />
     <ClInclude Include="LossyGame.h" />
+    <ClInclude Include="PlayerObject.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
@@ -188,6 +189,7 @@
     <ClCompile Include="DrawManager.cpp" />
     <ClCompile Include="Lossy.cpp" />
     <ClCompile Include="LossyGame.cpp" />
+    <ClCompile Include="PlayerObject.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Sprite.cpp" />

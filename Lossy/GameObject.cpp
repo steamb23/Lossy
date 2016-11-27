@@ -1,10 +1,11 @@
 #include "stdafx.h"
 #include "GameObject.h"
 
-GameObject::GameObject()
-{
-}
 
+GameObject::GameObject(std::shared_ptr<Game> game)
+{
+    this->game = game;
+}
 
 GameObject::~GameObject()
 {
