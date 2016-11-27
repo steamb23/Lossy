@@ -78,6 +78,9 @@
     <ClInclude Include="SpriteAnimation.h">
       <Filter>게임 헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Background.h">
+      <Filter>게임 헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Lossy.cpp">
@@ -122,6 +125,9 @@
     <ClCompile Include="SpriteAnimation.cpp">
       <Filter>게임 소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Background.cpp">
+      <Filter>게임 소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Lossy.rc">
@@ -141,14 +147,14 @@
     <Image Include="..\Bullet.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
-    <Image Include="..\Sprite-0002.bmp">
-      <Filter>리소스 파일</Filter>
-    </Image>
     <Image Include="..\background1.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
     <Image Include="..\background2.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>
