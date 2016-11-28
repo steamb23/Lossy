@@ -23,18 +23,30 @@ void PlayerObject::Update()
     if (GetAsyncKeyState(VK_UP))
     {
         position.y -= speed;
+        int top = position.y - 40;
+        if (top < 0)
+            position.y = 40;
     }
     else if (GetAsyncKeyState(VK_DOWN))
     {
         position.y += speed;
+        int bottom = position.y + 40;
+        if (bottom > 600)
+            position.y = 600 - 40;
     }
     if (GetAsyncKeyState(VK_LEFT))
     {
         position.x -= speed;
+        int left = position.x - 40;
+        if (left < 0)
+            position.x = 40;
     }
     else if (GetAsyncKeyState(VK_RIGHT))
     {
         position.x += speed;
+        int right = position.x + 40;
+        if (right > 800)
+            position.x = 800 - 40;
     }
     spriteAnimation->Update();
 }
