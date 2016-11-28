@@ -8,6 +8,7 @@ class SpriteAnimation
     int currentFrame = 0;
 public:
     SpriteAnimation(std::shared_ptr<Sprite> sprite, int interval);
+    SpriteAnimation(SpriteAnimation& target);
     virtual ~SpriteAnimation();
 
     int GetInterval() const { return interval; };

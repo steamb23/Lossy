@@ -10,6 +10,7 @@ Sprite::Sprite(HBITMAP bitmap, std::vector<RECT> sourceRect)
 
 Sprite::~Sprite()
 {
+    DeleteObject(bitmap);
 }
 
 void Sprite::Draw(int x, int y, int sourceRectIndex)

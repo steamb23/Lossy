@@ -10,6 +10,12 @@ SpriteAnimation::SpriteAnimation(std::shared_ptr<Sprite> sprite, int interval)
     currentFrame = 0;
 }
 
+SpriteAnimation::SpriteAnimation(SpriteAnimation & target)
+    : SpriteAnimation(target.sprite, target.interval)
+{
+    currentFrame = rand() % target.GetSprite()->GetCount();
+}
+
 SpriteAnimation::~SpriteAnimation()
 {
 }

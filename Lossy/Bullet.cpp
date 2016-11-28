@@ -25,6 +25,7 @@ void Bullet::Update()
     XMVECTOR velTemp = XMLoadFloat2(&velocity);
     posTemp += velTemp;
     XMStoreFloat2(&position, posTemp);
+    spriteAnimation->Update();
 }
 
 void Bullet::Draw()

@@ -3,6 +3,7 @@
 #include "Resource.h"
 #include "Game.h"
 #include "LossyGame.h"
+#include "GameScene.h"
 
 
 PlayerObject::PlayerObject(std::shared_ptr<Game> game, std::shared_ptr<BulletManager> bulletManager)
@@ -63,6 +64,15 @@ void PlayerObject::Update()
         zKeyPressed = false;
     }
     spriteAnimation->Update();
+
+    auto scene = std::dynamic_pointer_cast<GameScene>(GetGame()->GetSceneManager()->GetCurrentScene());
+    std::shared_ptr<Bullet> bullet;
+    bullet = scene->GetEnemyBullets()->CheckCollision(shared_from_this());
+    if (bullet != nullptr)
+    {
+        bullet->Destroy();
+        scene->GetStatusBar()->SetValue(scene->GetStatusBar()->GetValue() - 0.001);
+    }
 }
 
 void PlayerObject::Draw()

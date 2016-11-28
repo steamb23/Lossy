@@ -20,10 +20,13 @@ BossObject::BossObject(std::shared_ptr<Game> game, std::shared_ptr<BulletManager
 BossObject::~BossObject()
 {
 }
-
+int asdf = 0;
 void BossObject::Update()
 {
     spriteAnimation->Update();
+
+    if (asdf++ % 10 == 0)
+        bulletManager->CreateBullet(position, Vector2(-5, 0));
 
     auto scene = std::dynamic_pointer_cast<GameScene>(GetGame()->GetSceneManager()->GetCurrentScene());
     std::shared_ptr<Bullet> bullet;

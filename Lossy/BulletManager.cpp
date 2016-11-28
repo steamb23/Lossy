@@ -54,7 +54,7 @@ void BulletManager::Draw()
 
 void BulletManager::CreateBullet(Vector2 position, Vector2 velocity)
 {
-    auto temp = std::make_shared<Bullet>(game.lock(), position, spriteAnimation, radius, velocity);
+    auto temp = std::make_shared<Bullet>(game.lock(), position, std::make_shared<SpriteAnimation>(*spriteAnimation), radius, velocity);
     bulletList.push_back(temp);
 }
 
