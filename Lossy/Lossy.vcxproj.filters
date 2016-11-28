@@ -87,6 +87,12 @@
     <ClInclude Include="PlayerObject.h">
       <Filter>게임 헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="BossObject.h">
+      <Filter>게임 헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="xnamath.h">
+      <Filter>프레임워크 헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Lossy.cpp">
@@ -140,6 +146,9 @@
     <ClCompile Include="PlayerObject.cpp">
       <Filter>게임 소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="BossObject.cpp">
+      <Filter>게임 소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Lossy.rc">
@@ -177,5 +186,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+    <None Include="xnamathconvert.inl">
+      <Filter>프레임워크 헤더 파일</Filter>
+    </None>
+    <None Include="xnamathmatrix.inl">
+      <Filter>프레임워크 헤더 파일</Filter>
+    </None>
+    <None Include="xnamathmisc.inl">
+      <Filter>프레임워크 헤더 파일</Filter>
+    </None>
+    <None Include="xnamathvector.inl">
+      <Filter>프레임워크 헤더 파일</Filter>
+    </None>
   </ItemGroup>
 </Project>

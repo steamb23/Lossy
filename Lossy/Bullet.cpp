@@ -4,10 +4,14 @@
 #include "DrawManager.h"
 
 
-Bullet::Bullet(std::shared_ptr<Game> game, std::shared_ptr<SpriteAnimation> spriteAnimation)
-    : GameObject(game)
+Bullet::Bullet(std::shared_ptr<Game> game, Vector2 position, std::shared_ptr<SpriteAnimation> spriteAnimation, float radius, Vector2 velocity)
+    : GameObject(game, 10)
 {
     this->spriteAnimation = spriteAnimation;
+    this->radius = radius;
+    this->velocity = velocity;
+    this->position = position;
+    isDestroyed = false;
 }
 
 
@@ -17,6 +21,10 @@ Bullet::~Bullet()
 
 void Bullet::Update()
 {
+    XMVECTOR posTemp = XMLoadFloat2(&position);
+    XMVECTOR velTemp = XMLoadFloat2(&velocity);
+    posTemp += velTemp;
+    XMStoreFloat2(&position, posTemp);
 }
 
 void Bullet::Draw()

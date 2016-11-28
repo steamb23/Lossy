@@ -23,7 +23,7 @@ void LossyGame::Initialize()
     this->GetSceneManager()->ChangeScene(std::make_shared<GameScene>(shared_from_this()));
     // isFrameLimit = false;
     testBitmap = DrawManager::Inst()->LoadBitmapFromResource(IDB_BITMAPTEST);
-    spa = std::make_shared< SpriteAnimation>(std::make_shared<Sprite>(DrawManager::Inst()->LoadBitmapFromResource(IDB_BULLET), std::vector<RECT>({ { 0,0,32,32 },{ 32,0,32,32 } })),0);
+    spa = std::make_shared< SpriteAnimation>(std::make_shared<Sprite>(DrawManager::Inst()->LoadBitmapFromResource(IDB_BULLET), std::vector<RECT>({ { 0,0,32,32 },{ 32,0,32,32 } })),4);
 }
 
 void LossyGame::Update()
