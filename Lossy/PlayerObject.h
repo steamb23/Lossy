@@ -3,11 +3,13 @@
 #include "SpriteAnimation.h"
 #include "BulletManager.h"
 
+class LossyGame;
 class PlayerObject :
     public GameObject
 {
     std::shared_ptr<SpriteAnimation> spriteAnimation;
     std::shared_ptr<BulletManager> bulletManager;
+    std::shared_ptr<LossyGame> lossyGame;
 
     bool zKeyPressed;
 public:

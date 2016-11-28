@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "BossObject.h"
 #include "Resource.h"
+#include "LossyGame.h"
 
 
 BossObject::BossObject(std::shared_ptr<Game> game, std::shared_ptr<BulletManager> bulletManager)
@@ -10,6 +11,7 @@ BossObject::BossObject(std::shared_ptr<Game> game, std::shared_ptr<BulletManager
     spriteAnimation = std::make_shared<SpriteAnimation>(sprite, 4);
     position = Vector2(600, 300);
     radius = 20;
+    this->game = std::dynamic_pointer_cast<LossyGame>(game);
 
     this->bulletManager = bulletManager;
 }

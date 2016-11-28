@@ -15,6 +15,7 @@ PlayerObject::PlayerObject(std::shared_ptr<Game> game, std::shared_ptr<BulletMan
     radius = 20;
 
     this->bulletManager = bulletManager;
+    this->game = std::dynamic_pointer_cast<LossyGame>(game);
 }
 
 PlayerObject::~PlayerObject()
