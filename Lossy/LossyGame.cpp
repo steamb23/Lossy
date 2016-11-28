@@ -30,7 +30,6 @@ void LossyGame::Update()
 {
     Game::Update();
     spa->Update();
-    this->isKey = GetAsyncKeyState(VK_UP);
 }
 
 void LossyGame::Draw()
@@ -38,9 +37,6 @@ void LossyGame::Draw()
     ScreenClear();
     Game::Draw();
     spa->Draw(100, 100);
-    if (isKey)
-        for (int i = 0; i < 1000; i++)
-            DrawManager::Inst()->DrawBitmap(testBitmap, i, i*0.1, 128, 128, 0, 0, 128, 128);
 
     DrawFPS();
 }

@@ -8,5 +8,8 @@ class PlayerObject :
 public:
     PlayerObject(std::shared_ptr<Game> game);
     virtual ~PlayerObject();
+
+    virtual void Update();
+    virtual void Draw();
 };
 

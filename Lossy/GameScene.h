@@ -2,11 +2,13 @@
 #include "Scene.h"
 #include "Background.h"
 #include "SpriteAnimation.h"
+#include "PlayerObject.h"
+
 class GameScene :
     public Scene
 {
     std::shared_ptr<Background> back;
-    std::shared_ptr<SpriteAnimation> characterTest;
+    std::shared_ptr<PlayerObject> player;
 public:
     GameScene(std::shared_ptr<Game> game);
     virtual ~GameScene();

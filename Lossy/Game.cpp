@@ -44,7 +44,7 @@ int Game::Run()
                 DispatchMessage(&msg);
             }
         }
-        if (!isFrameLimit || timer.GetElapsedTotalSeconds() > 1 / (double)30)
+        if (!isFrameLimit || timer.GetElapsedTotalSeconds() > 1 / (double)60)
         {
             PreUpdate();
             InvalidateRect(hWnd, nullptr, false);

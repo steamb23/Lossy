@@ -27,5 +27,5 @@ void GameTime::Update()
     totalTime = totalTimer.GetElapsedTotalSeconds();
     totalFrameCount++;
 
-    deltaRatio = DeltaTimeD() * 30;
+    deltaRatio = DeltaTimeD() * 60;
 }
