@@ -27,9 +27,12 @@ void BossObject::Update()
 
     auto scene = std::dynamic_pointer_cast<GameScene>(GetGame()->GetSceneManager()->GetCurrentScene());
     std::shared_ptr<Bullet> bullet;
-        bullet = scene->GetPlayerBullets()->CheckCollision(shared_from_this());
-        if (bullet != nullptr)
+    bullet = scene->GetPlayerBullets()->CheckCollision(shared_from_this());
+    if (bullet != nullptr)
+    {
         bullet->Destroy();
+        scene->GetStatusBar()->SetValue(scene->GetStatusBar()->GetValue() - 0.001);
+    }
 }
 
 void BossObject::Draw()
