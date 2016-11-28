@@ -77,3 +77,13 @@ void BulletManager::CreateBullet(Vector2 position, float angle, float speed, boo
     Vector2 direction = Vector2(cos(angle), sin(angle));
     this->CreateBullet(position, direction, speed);
 }
+
+std::shared_ptr<Bullet> BulletManager::CheckCollision(std::shared_ptr<GameObject> object)
+{
+    for (auto iterator = bulletList.begin(); iterator != bulletList.end(); iterator++)
+    {
+        if (object->IsCollision(*iterator))
+            return (*iterator);
+    }
+    return nullptr;
+}
