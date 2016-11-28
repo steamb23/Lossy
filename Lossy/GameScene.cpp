@@ -13,7 +13,13 @@ GameScene::GameScene(std::shared_ptr<Game> game)
     std::shared_ptr<Sprite> playerBulletSprite = std::make_shared<Sprite>(DrawManager::Inst()->LoadBitmapFromResource(IDB_PBULLET), std::vector<RECT>({ {0,0,32,32} }));
     std::shared_ptr<SpriteAnimation> playerBulletSpriteAnimation = std::make_shared<SpriteAnimation>(playerBulletSprite, 0);
     playerBullets = std::make_shared<BulletManager>(GetGame(), playerBulletSpriteAnimation, 16);
+
+    std::shared_ptr<Sprite> enemyBulletSprite = std::make_shared<Sprite>(DrawManager::Inst()->LoadBitmapFromResource(IDB_BOSS), std::vector<RECT>({ { 0,0,32,32 },{ 32,0,32,32 } }));
+    std::shared_ptr<SpriteAnimation> enemyBulletSpriteAnimation = std::make_shared<SpriteAnimation>(enemyBulletSprite, 2);
+    enemyBullets = std::make_shared<BulletManager>(GetGame(), playerBulletSpriteAnimation, 16);
+
     player = std::make_shared<PlayerObject>(GetGame(), playerBullets);
+    boss = std::make_shared<BossObject>(GetGame(), enemyBullets);
 }
 
 GameScene::~GameScene()
@@ -24,6 +30,7 @@ void GameScene::Update()
 {
     back->Update();
     player->Update();
+    boss->Update();
 
     playerBullets->Update();
     //enemyBullets->Update();
@@ -34,6 +41,7 @@ void GameScene::Draw()
 {
     back->Draw();
     player->Draw();
+    boss->Draw();
 
     playerBullets->Draw();
     //enemyBullets->Draw();
