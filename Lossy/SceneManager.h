@@ -9,6 +9,7 @@ public:
     ~SceneManager();
 
     void ChangeScene(std::shared_ptr<Scene> scene);
+    std::shared_ptr<Scene> GetCurrentScene() { return currentScene; };
 
     void Update();
     void Draw();
