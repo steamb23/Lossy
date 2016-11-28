@@ -2,6 +2,7 @@
 #include "PlayerObject.h"
 #include "Resource.h"
 #include "Game.h"
+#include "LossyGame.h"
 
 
 PlayerObject::PlayerObject(std::shared_ptr<Game> game, std::shared_ptr<BulletManager> bulletManager)
