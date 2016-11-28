@@ -9,7 +9,7 @@ class PlayerObject :
 {
     std::shared_ptr<SpriteAnimation> spriteAnimation;
     std::shared_ptr<BulletManager> bulletManager;
-    std::shared_ptr<LossyGame> lossyGame;
+    std::shared_ptr<LossyGame> game;
 
     bool zKeyPressed;
 public:
