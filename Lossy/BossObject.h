@@ -9,7 +9,6 @@ class BossObject :
 {
     std::shared_ptr<SpriteAnimation> spriteAnimation;
     std::shared_ptr<BulletManager> bulletManager;
-    std::shared_ptr<LossyGame> game;
 public:
     BossObject(std::shared_ptr<Game> game, std::shared_ptr<BulletManager> bulletManager);
     virtual ~BossObject();

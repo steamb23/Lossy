@@ -20,6 +20,8 @@ GameScene::GameScene(std::shared_ptr<Game> game)
 
     player = std::make_shared<PlayerObject>(GetGame(), playerBullets);
     boss = std::make_shared<BossObject>(GetGame(), enemyBullets);
+
+    statusBar = std::make_shared<StatusBar>();
 }
 
 GameScene::~GameScene()
@@ -44,6 +46,8 @@ void GameScene::Draw()
     boss->Draw();
 
     playerBullets->Draw();
+
+    statusBar->Draw();
     //enemyBullets->Draw();
     //characterTest->Draw(100,300);
 }

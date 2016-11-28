@@ -5,6 +5,7 @@
 #include "PlayerObject.h"
 #include "BossObject.h"
 #include "BulletManager.h"
+#include "StatusBar.h"
 
 class GameScene :
     public Scene
@@ -15,6 +16,8 @@ class GameScene :
     
     std::shared_ptr<BulletManager> playerBullets;
     std::shared_ptr<BulletManager> enemyBullets;
+
+    std::shared_ptr<StatusBar> statusBar;
 public:
     GameScene(std::shared_ptr<Game> game);
     virtual ~GameScene();
@@ -22,6 +25,7 @@ public:
     virtual void Update();
     virtual void Draw();
 
+    std::shared_ptr<StatusBar> GetStatusBar() { return this->statusBar; };
     std::shared_ptr<BulletManager> GetPlayerBullets() { return this->playerBullets; };
     std::shared_ptr<BulletManager> GetEnemyBullets() { return this->enemyBullets; };
 };
