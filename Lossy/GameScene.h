@@ -21,5 +21,8 @@ public:
 
     virtual void Update();
     virtual void Draw();
+
+    std::shared_ptr<BulletManager> GetPlayerBullets() { return this->playerBullets; };
+    std::shared_ptr<BulletManager> GetEnemyBullets() { return this->enemyBullets; };
 };
 
