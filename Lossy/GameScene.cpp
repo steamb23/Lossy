@@ -32,7 +32,8 @@ void GameScene::Update()
 {
     back->Update();
     player->Update();
-    boss->Update();
+    if (statusBar->GetValue() > 0)
+        boss->Update();
 
     playerBullets->Update();
     //enemyBullets->Update();
@@ -43,7 +44,8 @@ void GameScene::Draw()
 {
     back->Draw();
     player->Draw();
-    boss->Draw();
+    if (statusBar->GetValue() > 0)
+        boss->Draw();
 
     playerBullets->Draw();
 
