@@ -21,5 +21,5 @@ void StatusBar::Update()
 
 void StatusBar::Draw()
 {
-    DrawManager::Inst()->DrawBitmap(bitmap, 0, 0, value * 800, 5, 0, 0, 1, 1);
+    DrawManager::Inst()->DrawBitmap(bitmap, 0, 0, value * 800, 10, 0, 0, 1, 1);
 }
