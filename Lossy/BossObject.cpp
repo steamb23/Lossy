@@ -49,7 +49,7 @@ void BossObject::Update()
         BerserkPattern();
         berserkTime += 0.05;
         hp = scene->GetStatusBar()->GetValue();
-        scene->GetStatusBar()->SetValue(hp + 0.00001);
+        scene->GetStatusBar()->SetValue(hp + 0.00005);
 
         position.y = 300 + sin(berserkTime) * 200;
         if (hp > 0.2)
@@ -80,7 +80,7 @@ void BossObject::Shot()
 
     float angle = atan2(XMVectorGetY(relativeVec), XMVectorGetX(relativeVec));
 
-    static int shotTime = 0;
+    static int shotTime = -30;
     static int pattern = rand() % 4;
 
     if (shotTime++ > 30)
@@ -124,7 +124,7 @@ bool BossObject::ShotPattern1(float angle)
     static int patternLoopCount = 0;
     static int interval = 0;
 
-    if (interval++ % 25 == 0)
+    if (interval++ % 20 == 0)
     {
         bulletManager->CreateBullet(position, angle - 0.8, 8);
         bulletManager->CreateBullet(position, angle - 0.4, 8);
@@ -226,8 +226,8 @@ bool BossObject::ShotPattern4(float angle)
 void BossObject::BerserkPattern()
 {
     static int interval = 0;
-    if (interval++ % 4 == 0)
+    if (interval++ % 3 == 0)
     {
-        bulletManager->CreateBullet(position, rand(), rand() / RAND_MAX * 5 + 5, false);
+        bulletManager->CreateBullet(position, rand(), rand() / RAND_MAX * 10 + 5, false);
     }
 }

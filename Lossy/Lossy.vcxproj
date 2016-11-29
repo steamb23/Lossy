@@ -161,6 +161,7 @@
     <ClInclude Include="DrawManager.h" />
     <ClInclude Include="Lossy.h" />
     <ClInclude Include="LossyGame.h" />
+    <ClInclude Include="MainScene.h" />
     <ClInclude Include="PlayerObject.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Scene.h" />
@@ -185,6 +186,7 @@
     <ClCompile Include="DrawManager.cpp" />
     <ClCompile Include="Lossy.cpp" />
     <ClCompile Include="LossyGame.cpp" />
+    <ClCompile Include="MainScene.cpp" />
     <ClCompile Include="PlayerObject.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
@@ -206,10 +208,13 @@
     <Image Include="..\..\..\..\..\Pictures\test.bmp" />
     <Image Include="..\background1.bmp" />
     <Image Include="..\background2.bmp" />
+    <Image Include="..\bitmap1.bmp" />
     <Image Include="..\Bullet.bmp" />
     <Image Include="..\GameClear.bmp" />
     <Image Include="..\GameOver.bmp" />
     <Image Include="..\GIF.bmp" />
+    <Image Include="..\MainScene1.bmp" />
+    <Image Include="..\MainScene2.bmp" />
     <Image Include="..\PBullet.bmp" />
     <Image Include="..\Player.bmp" />
     <Image Include="..\StatusBar.bmp" />

@@ -4,6 +4,7 @@
 #include "SpriteAnimation.h"
 #include "Background.h"
 #include "GameScene.h"
+#include "MainScene.h"
 #include <time.h>
 
 LossyGame::LossyGame(HWND hWnd, HINSTANCE hInst)
@@ -20,7 +21,7 @@ LossyGame::~LossyGame()
 void LossyGame::Initialize()
 {
     Game::Initialize();
-    this->GetSceneManager()->ChangeScene(std::make_shared<GameScene>(shared_from_this()));
+    this->GetSceneManager()->ChangeScene(std::make_shared<MainScene>(shared_from_this()));
     // isFrameLimit = false;
     testBitmap = DrawManager::Inst()->LoadBitmapFromResource(IDB_BITMAPTEST);
 }
