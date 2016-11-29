@@ -25,7 +25,7 @@ void SteamB23::Stopwatch::Initialize()
 {
     LARGE_INTEGER fre;
     bool succeeded = QueryPerformanceFrequency(&fre);
-    frequency = fre.HighPart;
+    frequency = fre.QuadPart;
     if (succeeded)
     {
         isHighResolution = true;
@@ -37,6 +37,7 @@ void SteamB23::Stopwatch::Initialize()
         frequency = TicksPerSecond;
         tickFrequency = 1;
     }
+    isInitialized = true;
 }
 
 SteamB23::Stopwatch::Stopwatch()
@@ -110,12 +111,12 @@ LONGLONG SteamB23::Stopwatch::GetElapsedTicks()
 
 LONGLONG SteamB23::Stopwatch::GetTimeStamp()
 {
-    if (isHighResolution)
+    if (IsHighResolution())
     {
         LARGE_INTEGER timestamp;
         timestamp.QuadPart = 0;
         QueryPerformanceCounter(&timestamp);
-        return timestamp.HighPart;
+        return timestamp.QuadPart;
     }
     else
     {
@@ -133,7 +134,7 @@ LONGLONG SteamB23::Stopwatch::GetTimeStamp()
 LONGLONG SteamB23::Stopwatch::GetElapsedDataTimeTicks()
 {
     LONGLONG rawTicks = GetElapsedTicks();
-    if (isHighResolution)
+    if (IsHighResolution())
     {
         double dticks = rawTicks;
         dticks *= tickFrequency;
