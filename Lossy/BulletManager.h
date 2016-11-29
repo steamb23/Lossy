@@ -21,6 +21,8 @@ public:
     void CreateBullet(Vector2 position, Vector2 direction, float speed);
     void CreateBullet(Vector2 position, float angle, float speed, bool isRadian = true);
 
+    void Clear();
+
     std::shared_ptr<Bullet> CheckCollision(std::shared_ptr<GameObject> object);
 };
 
