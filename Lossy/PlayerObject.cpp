@@ -76,8 +76,10 @@ void PlayerObject::Update()
             if (bullet != nullptr || scene->GetBossObject()->IsCollision(shared_from_this()))
             {
                 scene->GetEnemyBullets()->Clear();
+                scene->GetPlayerBullets()->Clear();
                 //scene->GetStatusBar()->SetValue(scene->GetStatusBar()->GetValue() - 0.001);
                 respawnCouter = 300;
+                scene->GetStatusBar()->SetValue(scene->GetStatusBar()->GetValue() + 0.1);
             }
         }
     }

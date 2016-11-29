@@ -55,7 +55,7 @@ void BossObject::Shot()
 
     float angle = atan2(XMVectorGetY(relativeVec), XMVectorGetX(relativeVec));
 
-    static int shotTime = 0;
+    static int shotTime = rand() % 3;
     static int pattern = 0;
     
     if (shotTime++ > 30)
@@ -64,7 +64,9 @@ void BossObject::Shot()
         {
         case 0:
             if (ShotPattern1(angle))
+            {
                 shotTime = -30;
+            }
             break;
         }
     }

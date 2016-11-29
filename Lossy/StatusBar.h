@@ -9,7 +9,11 @@ public:
     virtual ~StatusBar();
 
     float GetValue() { return value; };
-    void SetValue(float value) { this->value = value; };
+    void SetValue(float value) {
+        this->value = value;
+        if (this->value > 1)
+            this->value = 1;
+    };
 
     virtual void Update();
     virtual void Draw();
