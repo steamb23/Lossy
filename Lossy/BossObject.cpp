@@ -55,9 +55,9 @@ void BossObject::Shot()
 
     float angle = atan2(XMVectorGetY(relativeVec), XMVectorGetX(relativeVec));
 
-    static int shotTime = rand() % 3;
-    static int pattern = 0;
-    
+    static int shotTime = 0;
+    static int pattern = rand() % 4;
+
     if (shotTime++ > 30)
     {
         switch (pattern)
@@ -66,6 +66,28 @@ void BossObject::Shot()
             if (ShotPattern1(angle))
             {
                 shotTime = -30;
+                pattern = rand() % 4;
+            }
+            break;
+        case 1:
+            if (ShotPattern2(angle))
+            {
+                shotTime = -30;
+                pattern = rand() % 4;
+            }
+            break;
+        case 2:
+            if (ShotPattern3(angle))
+            {
+                shotTime = -30;
+                pattern = rand() % 4;
+            }
+            break;
+        case 3:
+            if (ShotPattern4(angle))
+            {
+                shotTime = -30;
+                pattern = rand() % 4;
             }
             break;
         }
@@ -87,6 +109,84 @@ bool BossObject::ShotPattern1(float angle)
         patternLoopCount++;
     }
     if (patternLoopCount > 10)
+    {
+        interval = 0;
+        patternLoopCount = 0;
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+bool BossObject::ShotPattern2(float angle)
+{
+    static int interval = 0;
+    static int shotCount = 0;
+    static int patternLoopCount = 0;
+
+    if (interval >= 0 && interval % 2 == 0)
+    {
+        if (patternLoopCount % 2 == 0)
+            bulletManager->CreateBullet(position, angle - (shotCount - 5) * 0.02, 5 + shotCount);
+        else
+            bulletManager->CreateBullet(position, angle + (shotCount - 5) * 0.02, 5 + shotCount);
+        shotCount++;
+    }
+    interval++;
+    if (shotCount > 10)
+    {
+        interval = -30;
+        shotCount = 0;
+        patternLoopCount++;
+    }
+    if (patternLoopCount > 5)
+    {
+        interval = 0;
+        shotCount = 0;
+        patternLoopCount = 0;
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+bool BossObject::ShotPattern3(float angle)
+{
+    static int patternLoopCount = 0;
+    static int interval = 0;
+
+    if (interval++ % 10 == 0)
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            bulletManager->CreateBullet(position, patternLoopCount * 13 + i*(360 / 10), 6, false);
+        }
+        patternLoopCount++;
+    }
+    if (patternLoopCount > 40)
+    {
+        interval = 0;
+        patternLoopCount = 0;
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+bool BossObject::ShotPattern4(float angle)
+{
+    static int patternLoopCount = 0;
+    static int interval = 0;
+    interval++;
+    bulletManager->CreateBullet(position, rand(), 6, false);
+    patternLoopCount++;
+    if (patternLoopCount > 300)
     {
         interval = 0;
         patternLoopCount = 0;

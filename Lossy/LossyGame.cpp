@@ -4,10 +4,12 @@
 #include "SpriteAnimation.h"
 #include "Background.h"
 #include "GameScene.h"
+#include <time.h>
 
 LossyGame::LossyGame(HWND hWnd, HINSTANCE hInst)
     :Game(hWnd, hInst)
 {
+    srand(time(0));
 }
 
 

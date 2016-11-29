@@ -19,5 +19,8 @@ public:
 private:
     void Shot();
     bool ShotPattern1(float angle);
+    bool ShotPattern2(float angle);
+    bool ShotPattern3(float angle);
+    bool ShotPattern4(float angle);
 };
 
