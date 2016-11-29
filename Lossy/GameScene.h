@@ -18,6 +18,8 @@ class GameScene :
     std::shared_ptr<BulletManager> enemyBullets;
 
     std::shared_ptr<StatusBar> statusBar;
+
+    bool gameCleared;
 public:
     GameScene(std::shared_ptr<Game> game);
     virtual ~GameScene();

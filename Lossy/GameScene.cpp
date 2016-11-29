@@ -22,6 +22,8 @@ GameScene::GameScene(std::shared_ptr<Game> game)
     boss = std::make_shared<BossObject>(GetGame(), enemyBullets);
 
     statusBar = std::make_shared<StatusBar>();
+
+    gameCleared = false;
 }
 
 GameScene::~GameScene()
@@ -32,11 +34,15 @@ void GameScene::Update()
 {
     back->Update();
     player->Update();
-    if (statusBar->GetValue() > 0)
+    if (statusBar->GetValue() < 0)
+        gameCleared = true;
+    if (!gameCleared)
+    {
         boss->Update();
+        enemyBullets->Update();
+    }
 
     playerBullets->Update();
-    enemyBullets->Update();
     //characterTest->Update();
 }
 
@@ -44,12 +50,14 @@ void GameScene::Draw()
 {
     back->Draw();
     player->Draw();
-    if (statusBar->GetValue() > 0)
+    if (!gameCleared)
+    {
         boss->Draw();
+        enemyBullets->Draw();
+
+        statusBar->Draw();
+    }
 
     playerBullets->Draw();
-    enemyBullets->Draw();
-
-    statusBar->Draw();
     //characterTest->Draw(100,300);
 }
