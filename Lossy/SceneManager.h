@@ -4,6 +4,7 @@
 class SceneManager
 {
     std::shared_ptr<Scene> currentScene;
+    std::shared_ptr<Scene> nextScene;
 public:
     SceneManager();
     ~SceneManager();

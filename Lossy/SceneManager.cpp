@@ -13,11 +13,12 @@ SceneManager::~SceneManager()
 
 void SceneManager::ChangeScene(std::shared_ptr<Scene> scene)
 {
-    currentScene = scene;
+    nextScene = scene;
 }
 
 void SceneManager::Update()
 {
+    currentScene = nextScene;
     if (currentScene != nullptr)
         currentScene->Update();
 }
