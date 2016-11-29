@@ -11,6 +11,7 @@ class PlayerObject :
     std::shared_ptr<BulletManager> bulletManager;
 
     bool zKeyPressed;
+    int respawnCouter;
 public:
     PlayerObject(std::shared_ptr<Game> game, std::shared_ptr<BulletManager> bulletManager);
     virtual ~PlayerObject();

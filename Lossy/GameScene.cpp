@@ -40,8 +40,14 @@ void GameScene::Update()
     back->Update();
     player->Update();
     if (statusBar->GetValue() < 0)
+    {
+        if (!gameCleared)
+        {
+            enemyBullets->Clear();
+        }
         gameCleared = true;
-    if (!gameCleared)
+    }
+    else if (!gameCleared)
     {
         boss->Update();
         enemyBullets->Update();

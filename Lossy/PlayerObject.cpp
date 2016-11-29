@@ -14,6 +14,7 @@ PlayerObject::PlayerObject(std::shared_ptr<Game> game, std::shared_ptr<BulletMan
     spriteAnimation = std::make_shared<SpriteAnimation>(sprite, 4);
     position = Vector2(100, 300);
     zKeyPressed = false;
+    respawnCouter = 0;
     radius = 20;
 
     this->bulletManager = bulletManager;
@@ -54,30 +55,38 @@ void PlayerObject::Update()
         if (right > 800)
             position.x = 800 - 100;
     }
-    if (!zKeyPressed && GetAsyncKeyState('Z'))
-    {
-        bulletManager->CreateBullet(position, Vector2(40, 0));
-        zKeyPressed = true;
-    }
-    else
-    {
-        zKeyPressed = false;
-    }
     spriteAnimation->Update();
 
-    auto scene = std::dynamic_pointer_cast<GameScene>(GetGame()->GetSceneManager()->GetCurrentScene());
-    std::shared_ptr<Bullet> bullet;
-    bullet = scene->GetEnemyBullets()->CheckCollision(shared_from_this());
-    if (bullet != nullptr)
+    if (respawnCouter <= 0)
     {
-        bullet->Destroy();
-        scene->GetStatusBar()->SetValue(scene->GetStatusBar()->GetValue() - 0.001);
+        if (!zKeyPressed && GetAsyncKeyState('Z'))
+        {
+            bulletManager->CreateBullet(position, Vector2(40, 0));
+            zKeyPressed = true;
+        }
+        else
+        {
+            zKeyPressed = false;
+        }
+        auto scene = std::dynamic_pointer_cast<GameScene>(GetGame()->GetSceneManager()->GetCurrentScene());
+        std::shared_ptr<Bullet> bullet;
+        bullet = scene->GetEnemyBullets()->CheckCollision(shared_from_this());
+        if (bullet != nullptr)
+        {
+            scene->GetEnemyBullets()->Clear();
+            //scene->GetStatusBar()->SetValue(scene->GetStatusBar()->GetValue() - 0.001);
+            respawnCouter = 300;
+        }
     }
+    else
+        respawnCouter--;
+
 }
 
 void PlayerObject::Draw()
 {
     int x = position.x - 64;
     int y = position.y - 64;
-    spriteAnimation->Draw(x, y);
+    if (respawnCouter % 2 == 0)
+        spriteAnimation->Draw(x, y);
 }
