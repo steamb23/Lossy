@@ -15,5 +15,9 @@ public:
 
     virtual void Update();
     virtual void Draw();
+
+private:
+    void Shot();
+    bool ShotPattern1(float angle);
 };
 

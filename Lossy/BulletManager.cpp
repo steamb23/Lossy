@@ -62,7 +62,7 @@ void BulletManager::CreateBullet(Vector2 position, Vector2 direction, float spee
 {
     XMVECTOR velVec = XMLoadFloat2(&direction);
     // velVec = XMVector2Normalize(velVec);
-    velVec * speed;
+    velVec *= speed;
     Vector2 velocity;
     XMStoreFloat2(&velocity, velVec);
     this->CreateBullet(position, velocity);
