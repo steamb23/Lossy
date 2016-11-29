@@ -69,13 +69,16 @@ void PlayerObject::Update()
             zKeyPressed = false;
         }
         auto scene = std::dynamic_pointer_cast<GameScene>(GetGame()->GetSceneManager()->GetCurrentScene());
-        std::shared_ptr<Bullet> bullet;
-        bullet = scene->GetEnemyBullets()->CheckCollision(shared_from_this());
-        if (bullet != nullptr)
+        if (!scene->IsCleared())
         {
-            scene->GetEnemyBullets()->Clear();
-            //scene->GetStatusBar()->SetValue(scene->GetStatusBar()->GetValue() - 0.001);
-            respawnCouter = 300;
+            std::shared_ptr<Bullet> bullet;
+            bullet = scene->GetEnemyBullets()->CheckCollision(shared_from_this());
+            if (bullet != nullptr || scene->GetBossObject()->IsCollision(shared_from_this()))
+            {
+                scene->GetEnemyBullets()->Clear();
+                //scene->GetStatusBar()->SetValue(scene->GetStatusBar()->GetValue() - 0.001);
+                respawnCouter = 300;
+            }
         }
     }
     else

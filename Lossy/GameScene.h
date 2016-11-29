@@ -33,5 +33,9 @@ public:
     std::shared_ptr<StatusBar> GetStatusBar() { return this->statusBar; };
     std::shared_ptr<BulletManager> GetPlayerBullets() { return this->playerBullets; };
     std::shared_ptr<BulletManager> GetEnemyBullets() { return this->enemyBullets; };
+
+    std::shared_ptr<PlayerObject> GetPlayerObject() { return this->player; };
+    std::shared_ptr<BossObject> GetBossObject() { return this->boss; };
+    bool IsCleared() { return gameCleared; };
 };
 
