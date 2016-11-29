@@ -23,11 +23,16 @@ GameScene::GameScene(std::shared_ptr<Game> game)
 
     statusBar = std::make_shared<StatusBar>();
 
+    gameoverBitmap = DrawManager::Inst()->LoadBitmapFromResource(IDB_GAMEOVER);
+    gameclearBitamp = DrawManager::Inst()->LoadBitmapFromResource(IDB_GAMECLEAR);
+
     gameCleared = false;
 }
 
 GameScene::~GameScene()
 {
+    DeleteObject(gameoverBitmap);
+    DeleteObject(gameclearBitamp);
 }
 
 void GameScene::Update()
@@ -59,5 +64,9 @@ void GameScene::Draw()
     }
 
     playerBullets->Draw();
+    if (gameCleared)
+    {
+        DrawManager::Inst()->DrawBitmap(gameclearBitamp, 0, 0, 800, 600, 0, 0, 800, 600);
+    }
     //characterTest->Draw(100,300);
 }

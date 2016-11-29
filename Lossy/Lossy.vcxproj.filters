@@ -192,6 +192,12 @@
     <Image Include="..\StatusBar.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
+    <Image Include="..\GameClear.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\GameOver.bmp">
+      <Filter>리소스 파일</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

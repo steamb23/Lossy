@@ -20,6 +20,9 @@ class GameScene :
     std::shared_ptr<StatusBar> statusBar;
 
     bool gameCleared;
+
+    HBITMAP gameoverBitmap;
+    HBITMAP gameclearBitamp;
 public:
     GameScene(std::shared_ptr<Game> game);
     virtual ~GameScene();

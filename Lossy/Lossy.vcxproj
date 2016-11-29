@@ -207,6 +207,8 @@
     <Image Include="..\background1.bmp" />
     <Image Include="..\background2.bmp" />
     <Image Include="..\Bullet.bmp" />
+    <Image Include="..\GameClear.bmp" />
+    <Image Include="..\GameOver.bmp" />
     <Image Include="..\GIF.bmp" />
     <Image Include="..\PBullet.bmp" />
     <Image Include="..\Player.bmp" />
