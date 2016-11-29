@@ -9,6 +9,8 @@ class BossObject :
 {
     std::shared_ptr<SpriteAnimation> spriteAnimation;
     std::shared_ptr<BulletManager> bulletManager;
+
+    bool isBerserk;
 public:
     BossObject(std::shared_ptr<Game> game, std::shared_ptr<BulletManager> bulletManager);
     virtual ~BossObject();
@@ -22,5 +24,6 @@ private:
     bool ShotPattern2(float angle);
     bool ShotPattern3(float angle);
     bool ShotPattern4(float angle);
+    void BerserkPattern();
 };
 

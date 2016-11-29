@@ -12,6 +12,7 @@ BossObject::BossObject(std::shared_ptr<Game> game, std::shared_ptr<BulletManager
     spriteAnimation = std::make_shared<SpriteAnimation>(sprite, 4);
     position = Vector2(600, 300);
     radius = 100;
+    isBerserk = false;
 
     this->bulletManager = bulletManager;
 }
@@ -23,6 +24,8 @@ BossObject::~BossObject()
 int asdf = 0;
 void BossObject::Update()
 {
+    static float berserkTime = 0;
+
     spriteAnimation->Update();
 
     Shot();
@@ -30,10 +33,32 @@ void BossObject::Update()
     auto scene = std::dynamic_pointer_cast<GameScene>(GetGame()->GetSceneManager()->GetCurrentScene());
     std::shared_ptr<Bullet> bullet;
     bullet = scene->GetPlayerBullets()->CheckCollision(shared_from_this());
+    float hp = scene->GetStatusBar()->GetValue();
     if (bullet != nullptr)
     {
         bullet->Destroy();
-        scene->GetStatusBar()->SetValue(scene->GetStatusBar()->GetValue() - 0.001);
+        scene->GetStatusBar()->SetValue(hp - 0.001);
+        if (hp < 0.1)
+        {
+            isBerserk = true;
+        }
+
+    }
+    if (isBerserk)
+    {
+        BerserkPattern();
+        berserkTime += 0.05;
+        hp = scene->GetStatusBar()->GetValue();
+        scene->GetStatusBar()->SetValue(hp + 0.00001);
+
+        position.y = 300 + sin(berserkTime) * 200;
+        if (hp > 0.2)
+            isBerserk = false;
+    }
+    else if (position.y != 300)
+    {
+        berserkTime = 0;
+        position.y += (300 - position.y)*0.05 ;
     }
 }
 
@@ -99,7 +124,7 @@ bool BossObject::ShotPattern1(float angle)
     static int patternLoopCount = 0;
     static int interval = 0;
 
-    if (interval++ % 20 == 0)
+    if (interval++ % 25 == 0)
     {
         bulletManager->CreateBullet(position, angle - 0.8, 8);
         bulletManager->CreateBullet(position, angle - 0.4, 8);
@@ -135,7 +160,7 @@ bool BossObject::ShotPattern2(float angle)
         shotCount++;
     }
     interval++;
-    if (shotCount > 10)
+    if (shotCount > 8)
     {
         interval = -30;
         shotCount = 0;
@@ -159,7 +184,7 @@ bool BossObject::ShotPattern3(float angle)
     static int patternLoopCount = 0;
     static int interval = 0;
 
-    if (interval++ % 10 == 0)
+    if (interval++ % 15 == 0)
     {
         for (int i = 0; i < 10; i++)
         {
@@ -184,7 +209,7 @@ bool BossObject::ShotPattern4(float angle)
     static int patternLoopCount = 0;
     static int interval = 0;
     interval++;
-    bulletManager->CreateBullet(position, rand(), 6, false);
+    bulletManager->CreateBullet(position, rand(), 10, false);
     patternLoopCount++;
     if (patternLoopCount > 300)
     {
@@ -195,5 +220,14 @@ bool BossObject::ShotPattern4(float angle)
     else
     {
         return false;
+    }
+}
+
+void BossObject::BerserkPattern()
+{
+    static int interval = 0;
+    if (interval++ % 4 == 0)
+    {
+        bulletManager->CreateBullet(position, rand(), rand() / RAND_MAX * 5 + 5, false);
     }
 }

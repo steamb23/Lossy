@@ -15,7 +15,7 @@ PlayerObject::PlayerObject(std::shared_ptr<Game> game, std::shared_ptr<BulletMan
     position = Vector2(100, 300);
     zKeyPressed = false;
     respawnCouter = 0;
-    radius = 20;
+    radius = 8;
 
     this->bulletManager = bulletManager;
 }
@@ -78,8 +78,8 @@ void PlayerObject::Update()
                 scene->GetEnemyBullets()->Clear();
                 scene->GetPlayerBullets()->Clear();
                 //scene->GetStatusBar()->SetValue(scene->GetStatusBar()->GetValue() - 0.001);
-                respawnCouter = 300;
-                scene->GetStatusBar()->SetValue(scene->GetStatusBar()->GetValue() + 0.1);
+                respawnCouter = 180;
+                scene->GetStatusBar()->SetValue(scene->GetStatusBar()->GetValue() + 0.05);
             }
         }
     }
