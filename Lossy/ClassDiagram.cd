@@ -1,91 +1,133 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="DrawManager" Collapsed="true">
-    <Position X="7.75" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>BAAAAAAAAAAEIACABAAAAAAEgABAAAAAIEQCAAAYBQA=</HashCode>
-      <FileName>DrawManager.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Game" Collapsed="true">
-    <Position X="0.5" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AIQBAAQAAYAAAwgABAQAJAAAAAiAAAAAAAAABAGAAAI=</HashCode>
-      <FileName>Game.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="GameObject" Collapsed="true">
-    <Position X="3.5" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>ABQAAAAAACAAAgAAAAAAIAAAAAAAAgAEAAAAAAIAAAA=</HashCode>
-      <FileName>GameObject.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="GameTime" Collapsed="true">
-    <Position X="9.5" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAiEAAAEBAAAIEAAQEQAAAAAAMAAAEAAAAFA=</HashCode>
-      <FileName>GameTime.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="SceneManager" Collapsed="true">
-    <Position X="7.75" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAkgAAAAAAAAAAAAAAAAAAAAAAAAAAgQ=</HashCode>
-      <FileName>SceneManager.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Scene" Collapsed="true">
-    <Position X="6" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAgAAgAAAAAAAQAAAAAAMAAAAAAAAAAA=</HashCode>
-      <FileName>Scene.h</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="SteamB23::Stopwatch" Collapsed="true">
-    <Position X="7.75" Y="2.5" Width="1.5" />
+    <Position X="13" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EQAQAAAAgCAAhQBAAEQgQAAAgIBBAAiEIAABAAAAgAg=</HashCode>
       <FileName>Stopwatch.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Bullet" Collapsed="true">
-    <Position X="3.5" Y="2" Width="1.5" />
+  <Class Name="DrawManager" Collapsed="true">
+    <Position X="13" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAJAAAgAQAAAAAAAAAABAAAAEAAAAAAAQAAA=</HashCode>
+      <HashCode>BAAAAAAAAAAEIACABAQAAAAEgABAAAAAIEQCAAAYBQA=</HashCode>
+      <FileName>DrawManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game" Collapsed="true">
+    <Position X="8.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIQBAEQAAYAAAwgADAQAJAAAAAiAAAAAAAAABAGAAAI=</HashCode>
+      <FileName>Game.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameObject" Collapsed="true">
+    <Position X="6.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABQACQAACCAAAgAAAAAAIAAAAAAAAgAMAAAAAAqAAAA=</HashCode>
+      <FileName>GameObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameTime" Collapsed="true">
+    <Position X="11.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAiEAAAEBAAAIEAAQEQAAAAAAMAAAEAAAAFA=</HashCode>
+      <FileName>GameTime.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Scene" Collapsed="true">
+    <Position X="5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQACAAAAAAAAgAAgAAAAAAAQAAAAAAMAAAAAAAAAAA=</HashCode>
+      <FileName>Scene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SceneManager" Collapsed="true">
+    <Position X="6.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAkggAAAAAAAAAAAAACAAAAAAAAAAAgQ=</HashCode>
+      <FileName>SceneManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Background" Collapsed="true">
+    <Position X="11.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAEAAAAAgAAAAAAAgAAAQAAAACIAAAgAAAAAAg=</HashCode>
+      <FileName>Background.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BossObject" Collapsed="true">
+    <Position X="8.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAMAAAIAAAgAAAAAAAAAAEAAIAAAQAAAACAAEAAA=</HashCode>
+      <FileName>BossObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bullet" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAACJAAAgAQAAAAAAAAAABAAAAEAAQAAAAQAAA=</HashCode>
       <FileName>Bullet.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BulletManager" Collapsed="true">
-    <Position X="6" Y="0.5" Width="1.5" />
+    <Position X="4" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AIQAAAAAAAAAAgAAAAAQAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <HashCode>AIQAAAAACIAAAgAAAAAQAAAAAAAAAACJAAAAgABAAAA=</HashCode>
       <FileName>BulletManager.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="LossyGame" Collapsed="true">
-    <Position X="0.5" Y="2" Width="1.5" />
+  <Class Name="GameScene" Collapsed="true">
+    <Position X="3.75" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABQAAAAAAAAAAwAAAAAQAAAAAAAAAAAAAAACAAAAAgA=</HashCode>
+      <HashCode>AIQAAAEACAAIAgAAQAAABECAAIAgAiABgQAAAAAAAAg=</HashCode>
+      <FileName>GameScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LossyGame" Collapsed="true">
+    <Position X="8.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABQAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAACAAAAAgA=</HashCode>
       <FileName>LossyGame.h</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="MainScene" Collapsed="true">
+    <Position X="6" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAEAAAAIAAAgAAAAAQAAABI=</HashCode>
+      <FileName>MainScene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerObject" Collapsed="true">
+    <Position X="6.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAIAAAgAAAAAAAAAQEAAAAAgCEAAAAAAAAAA=</HashCode>
+      <FileName>PlayerObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="Sprite" Collapsed="true">
-    <Position X="9.5" Y="1.5" Width="1.5" />
+    <Position X="13" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAIAAAAAAAAgAAAAAAAAAIAEAAAAAQAAAAAAAAAAI=</HashCode>
       <FileName>Sprite.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SpriteAnimation" Collapsed="true">
-    <Position X="6" Y="2.5" Width="1.5" />
+    <Position X="11.25" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAEAAgAACEgAAAAAAAACAAJAAACgAAAAAAAAAAIA=</HashCode>
       <FileName>SpriteAnimation.h</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="StatusBar" Collapsed="true">
+    <Position X="13.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAIAAgAgAAAAAAAAAIAAAAACAAAAAAAIAAAAA=</HashCode>
+      <FileName>StatusBar.h</FileName>
+    </TypeIdentifier>
+  </Class>
   <Typedef Name="Vector2" Collapsed="true">
-    <Position X="6" Y="3.75" Width="1.5" />
+    <Position X="11.25" Y="4.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameMath.h</FileName>
