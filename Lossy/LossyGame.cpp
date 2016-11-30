@@ -36,5 +36,5 @@ void LossyGame::Draw()
     ScreenClear();
     Game::Draw();
 
-    DrawFPS();
+    DrawFPS(Vector2(0, 540));
 }

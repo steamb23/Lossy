@@ -23,7 +23,7 @@ public:
     virtual void Draw();
 
     void ScreenClear();
-    void DrawFPS();
+    void DrawFPS(Vector2 pos = Vector2(0,0));
 
     BOOL IsFrameLimit() { return isFrameLimit; };
     void IsFrameLimit(BOOL value) { this->isFrameLimit = value; };

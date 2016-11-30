@@ -226,8 +226,21 @@ bool BossObject::ShotPattern4(float angle)
 void BossObject::BerserkPattern()
 {
     static int interval = 0;
-    if (interval++ % 3 == 0)
+    static int interval2 = 0;
+    if (interval++ % 8 == 0)
     {
-        bulletManager->CreateBullet(position, rand(), rand() / RAND_MAX * 10 + 5, false);
+        bulletManager->CreateBullet(position, rand(), rand() / RAND_MAX * 5 + 5, false);
+    }
+    if (interval2++ % 30 == 0)
+    {
+        auto scene = std::dynamic_pointer_cast<GameScene>(GetGame()->GetSceneManager()->GetCurrentScene());
+        XMVECTOR playervec = XMLoadFloat2(&scene->GetPlayerObject()->GetPosition());
+        XMVECTOR bossvec = XMLoadFloat2(&this->GetPosition());
+
+        XMVECTOR relativeVec = playervec - bossvec;
+
+        float angle = atan2(XMVectorGetY(relativeVec), XMVectorGetX(relativeVec));
+
+        bulletManager->CreateBullet(position, angle, 10);
     }
 }

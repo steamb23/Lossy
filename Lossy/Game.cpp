@@ -130,13 +130,16 @@ void Game::ScreenClear()
     DrawManager::Inst()->ScreenClear();
 }
 
-void Game::DrawFPS()
+void Game::DrawFPS(Vector2 pos)
 {
     WCHAR frame[512];
     HDC hdc = DrawManager::Inst()->GetDC();
 
     SetBkMode(hdc, TRANSPARENT);
     SetTextColor(hdc, RGB(0, 255, 255));
+    
+    int x = pos.x;
+    int y = pos.y;
 
     double fps = 0;
     // fps
@@ -145,7 +148,7 @@ void Game::DrawFPS()
         wsprintfW(frame, L"fps : %sfps", std::to_wstring(fps).c_str());
     else
         wsprintfW(frame, L"fps : null");
-    TextOut(hdc, 0, 0, frame, lstrlenW(frame));
+    TextOut(hdc, x, y, frame, lstrlenW(frame));
 
     // deltaTime
     fps = gameTime->DeltaTimeD();
@@ -153,7 +156,7 @@ void Game::DrawFPS()
         wsprintfW(frame, L"deltaTime : %ss", std::to_wstring(fps).c_str());
     else
         wsprintfW(frame, L"deltaTime : null");
-    TextOut(hdc, 0, 20, frame, lstrlenW(frame));
+    TextOut(hdc, x, y+20, frame, lstrlenW(frame));
 
     // deltaRatio
     fps = gameTime->DeltaRatioD();
@@ -161,7 +164,7 @@ void Game::DrawFPS()
         wsprintfW(frame, L"deltaRatio : %s%%", std::to_wstring(fps * 100).c_str());
     else
         wsprintfW(frame, L"deltaRatio : null");
-    TextOut(hdc, 0, 40, frame, lstrlenW(frame));
+    TextOut(hdc, x, y+40, frame, lstrlenW(frame));
     /*
         Font font(L"Arial", 20, FontStyleRegular, UnitPixel);
         SolidBrush fontBrush(Color::White);
